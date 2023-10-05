@@ -38,11 +38,11 @@ The game uses a word list with over 3,000 words.
 ## Acknowledgments
 
 - This project is part of the "30 Days of JavaScript" challenge.
-- Word list source: [Free Dictionary API](https://dictionaryapi.dev/)
+- Word list source: [5 Letter Words - Byjus](https://byjus.com/english/5-letter-words/)
 
 ## Author
 
-[Your Name]
+Pratik Hande
 
 ## License
 
