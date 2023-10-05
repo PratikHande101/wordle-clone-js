@@ -1,4 +1,5 @@
 let current_cell = 0;
+let current_cell_ui = 0;
 let current_row = 0;
 let guessed_words = { 0: "", 1: "", 2: "", 3: "", 4: "", 5: "" };
 
@@ -33,7 +34,8 @@ function dictSetter(value) {
     // console.log(guessed_words[current_row][current_cell]);
     // console.log(current_cell);
 
-    const cell = document.getElementById(`char_${current_cell + 1}`);
+    current_cell_ui = current_cell + 5 * current_row;
+    const cell = document.getElementById(`char_${current_cell_ui + 1}`);
     cell.innerHTML = guessed_words[current_row][current_cell].toUpperCase();
 
     current_cell += 1;
@@ -48,7 +50,8 @@ function dictResetter() {
     guessed_words[current_row] = guessed_words[current_row].slice(0, -1);
     current_cell -= 1;
 
-    const cell = document.getElementById(`char_${current_cell + 1}`);
+    current_cell_ui = current_cell + 5 * current_row;
+    const cell = document.getElementById(`char_${current_cell_ui + 1}`);
     cell.innerHTML = "";
 
     console.log(guessed_words);
@@ -57,7 +60,6 @@ function dictResetter() {
 
 function dictFinaliser() {
   let flag = false;
-
   for (let i = 0; i < current_row; i++) {
     if (guessed_words[i] === guessed_words[current_row]) {
       flag = true;
@@ -66,8 +68,9 @@ function dictFinaliser() {
 
   if (flag === false && words.includes(guessed_words[current_row])) {
     current_row += 1;
+    current_cell = 0;
   } else {
-    alert("The fuck is " + guessed_words[current_row]);
+    alert("What the fuck is " + guessed_words[current_row] + "?");
   }
 }
 
