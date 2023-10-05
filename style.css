@@ -6,6 +6,7 @@
   body {
     color: #fff;
     background-color: #121213;
+    font-family: 'Helvetica Neue', sans-serif;
   }
   
   #container {
@@ -47,7 +48,7 @@
     height: 50px;
     width: 50px;
     border: 1px solid #3a3a3c;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
   }
   
