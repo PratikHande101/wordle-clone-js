@@ -30,12 +30,18 @@
   .main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 50px;
     height: 100%;
     align-items: center;
     justify-content: center;
   }
   
+  #cells {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .row {
     display: flex;
     gap: 10px;
@@ -45,10 +51,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
     border: 1px solid #3a3a3c;
     font-size: 2rem;
     font-weight: 800;
+  }
+  
+
+  #keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .keyRow {
+    display: flex;
+    gap: 6px;
+  }
+
+  span {
+    background-color: #818384;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px 15px;
+    border-radius: 7px;
+  }
+
+  .not_present {
+    background-color: #3a3a3c;
+  }
+
+  .green {
+    background-color: #538D4E;
+  }
+
+  .yellow {
+    background-color: #B59F3B;
   }
   

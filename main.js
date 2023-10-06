@@ -4,6 +4,7 @@ let current_row = 0;
 let guessed_words = { 0: "", 1: "", 2: "", 3: "", 4: "", 5: "" };
 let isGuessed = false;
 let finalWord;
+let spanElements = document.querySelectorAll('#keyboard span');
 
 window.onload = () => {
     finalWord = words[(Math.floor(Math.random() * words.length))];
@@ -59,19 +60,36 @@ function dictFinaliser() {
     }
 
     if (flag === false && words.includes(guessed_words[current_row])) {
+
         for (let i = 0, j = 0; i < 5; i++) {
             const cell = document.getElementById(`char_${(i + (5*current_row) + 1)}`);
             if (guessed_words[current_row][i] == finalWord[i] && guessCount < 5) {
-                cell.style.backgroundColor = '#538D4E';
+                cell.classList.add('green');
+                for (let j = 0; j < spanElements.length; j++) {
+                    if (spanElements[j].textContent.toLowerCase() === guessed_words[current_row][i].toLowerCase()) {
+                        spanElements[j].classList.add('green');
+                    }
+                }                
+
                 guessCount += 1;
                 if (guessCount == 5) {
                     console.log("Bravo!");
                     isGuessed = true;
                 }
             } else if (finalWord.includes(guessed_words[current_row][i])) {
-                cell.style.backgroundColor = '#B59F3B';
+                cell.classList.add('yellow');
+                for (let j = 0; j < spanElements.length; j++) {
+                    if (spanElements[j].textContent.toLowerCase() === guessed_words[current_row][i].toLowerCase()) {
+                        spanElements[j].classList.add('yellow');
+                    }
+                }  
             } else if (!finalWord.includes(guessed_words[current_row][i])){
-                cell.style.backgroundColor = '#3A3A3C';
+                cell.classList.add('not_present');
+                for (let j = 0; j < spanElements.length; j++) {
+                    if (spanElements[j].textContent.toLowerCase() === guessed_words[current_row][i].toLowerCase()) {
+                        spanElements[j].classList.add('not_present');
+                    }
+                }
             }
         }
 
