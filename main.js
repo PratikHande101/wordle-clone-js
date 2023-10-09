@@ -43,7 +43,7 @@ function dictResetter() {
         const cell = document.getElementById(`char_${current_cell_ui + 1}`);
         cell.innerHTML = "";
 
-        console.log(guessed_words);
+        //console.log(guessed_words);
     }
 }
 
@@ -111,4 +111,21 @@ window.addEventListener("keydown", (ev) => {
     }
 });
 
-
+document.getElementById('keyboard').addEventListener("click", ev => {
+    let value;
+    console.log(ev.target.textContent);
+    if (!isGuessed) {
+        if (ev.target.textContent != "" && ev.target.textContent != "ENTER") {
+            value = ev.target.textContent[0].toLowerCase();
+        } else if (ev.target.textContent == "ENTER") {
+            value = "Enter";
+        } else if (ev.target.textContent == "") {
+            value = "Backspace";
+        }
+        if (value === "Backspace" && current_cell >= 0) {
+            dictResetter();
+        } else if (value.toLowerCase() !== value.toUpperCase() || value === "Enter") {
+            dictSetter(value);
+        }
+    }
+})
